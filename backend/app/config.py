@@ -27,6 +27,9 @@ class Settings(BaseSettings):
     # CORS
     CORS_ORIGINS: str = '["http://localhost:3000","http://localhost:5173"]'
 
+    # Frontend URL (for OAuth redirect)
+    FRONTEND_URL: str = "http://localhost:5173"
+
     # Supabase
     SUPABASE_URL: str = ""
     SUPABASE_KEY: str = ""
