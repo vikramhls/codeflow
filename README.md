@@ -4,7 +4,7 @@ A collaborative, gamified code review and bug bounty platform.
 
 CodeFlow allows open-source maintainers to post issues with bounties, and rewards developers for submitting verified solutions. With integrated AI code review, reputation streaks, and a unique issue bidding system, CodeFlow makes open-source collaboration fun, rewarding, and efficient.
 
-![CodeFlow Homepage](screenshots/homepage.png)
+
 
 ## ✨ Key Features
 
@@ -23,7 +23,7 @@ CodeFlow allows open-source maintainers to post issues with bounties, and reward
 5. **🏆 Verifiable Developer Portfolios**
    Every user has a public profile page displaying their active streak, total reputation points, and a verified portfolio of every bug they've successfully solved across the platform. 
 
-![Issues Page](screenshots/issues.png)
+
 
 ## 📁 Project Structure
 
