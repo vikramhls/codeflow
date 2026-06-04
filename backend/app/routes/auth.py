@@ -1,5 +1,7 @@
 """GitHub OAuth authentication routes."""
 
+import json
+from urllib.parse import urlencode
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, HTTPException, status, Depends, Query
@@ -14,8 +16,10 @@ from app.middleware.auth_middleware import (
     decode_token,
     get_current_user,
 )
+from app.config import settings
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
+
 
 
 # ─── Response schemas ──────────────────────────────────────────────────
@@ -131,17 +135,23 @@ async def github_callback(code: str = Query(...), state: str = Query(default="")
     access_token = create_access_token(token_data)
     refresh_token = create_refresh_token(token_data)
 
-    return TokenResponse(
-        access_token=access_token,
-        refresh_token=refresh_token,
-        user={
-            "id": str(user.id),
-            "username": user.username,
-            "avatar_url": user.avatar_url,
-            "email": user.email,
-            "name": user.name,
-        },
-    )
+    # ── Redirect to frontend with tokens in query params ──────────────
+    user_payload = {
+        "id": str(user.id),
+        "username": user.username,
+        "avatar_url": user.avatar_url,
+        "email": user.email or "",
+        "name": user.name or "",
+    }
+
+    params = urlencode({
+        "access_token": access_token,
+        "refresh_token": refresh_token,
+        "user": json.dumps(user_payload),
+    })
+
+    frontend_callback = f"{settings.FRONTEND_URL}/auth/callback?{params}"
+    return RedirectResponse(url=frontend_callback)
 
 
 @router.post("/refresh", response_model=TokenResponse)
