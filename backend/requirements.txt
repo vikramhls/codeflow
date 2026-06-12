@@ -15,3 +15,5 @@ bcrypt==4.2.0
 supabase==2.9.1
 openai==1.51.0
 pymongo>=4.6.0,<4.12
+chromadb==0.5.0
+numpy

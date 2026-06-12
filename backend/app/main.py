@@ -16,6 +16,9 @@ from app.routes.files import router as files_router
 from app.routes.issues import router as issues_router
 from app.routes.solutions import router as solutions_router
 from app.routes.users import router as users_router
+from app.routes.devops import router as devops_router
+from app.routes.interviews import router as interviews_router
+from app.routes.knowledge import router as knowledge_router
 
 
 @asynccontextmanager
@@ -92,6 +95,9 @@ app.include_router(files_router)
 app.include_router(issues_router)
 app.include_router(solutions_router)
 app.include_router(users_router)
+app.include_router(devops_router)
+app.include_router(interviews_router)
+app.include_router(knowledge_router)
 
 
 # ─── Health Check ─────────────────────────────────────────────────────

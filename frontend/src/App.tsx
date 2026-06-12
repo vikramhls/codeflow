@@ -20,7 +20,10 @@ import SolutionsPage from './pages/SolutionsPage';
 import SolutionDetailPage from './pages/SolutionDetailPage';
 import ProfilePage from './pages/ProfilePage';
 import DevOpsReportPage from './pages/DevOpsReportPage';
+import MockInterviewPage from './pages/MockInterviewPage';
+import RepoAskPage from './pages/RepoAskPage';
 import RepoMapPage from './pages/RepoMapPage';
+import CliLoginPage from './pages/CliLoginPage';
 
 // Layout wrapper with sidebar
 import {
@@ -170,6 +173,7 @@ export default function App() {
               {/* Public */}
               <Route path="/" element={<LandingPage />} />
               <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/cli-login" element={<CliLoginPage />} />
 
               {/* Protected — authenticated layout */}
               <Route element={
@@ -182,6 +186,8 @@ export default function App() {
                 <Route path="/repos/:id" element={<RepoDetailPage />} />
                 <Route path="/repos/:id/devops" element={<DevOpsReportPage />} />
                 <Route path="/repos/:id/map" element={<RepoMapPage />} />
+                <Route path="/repos/:id/interview" element={<MockInterviewPage />} />
+                <Route path="/repos/:id/ask" element={<RepoAskPage />} />
                 <Route path="/files/:id" element={<FileDetailPage />} />
                 <Route path="/issues" element={<IssuesPage />} />
                 <Route path="/issues/:id" element={<IssueDetailPage />} />

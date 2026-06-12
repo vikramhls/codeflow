@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { GitBranch, FileCode, Eye, EyeOff, List, ListX,
-  RefreshCw, Wand2, ArrowLeft, Star, GitFork, Search, Globe, Lock, Server, Map } from 'lucide-react';
+  RefreshCw, Wand2, ArrowLeft, Star, GitFork, Search, Globe, Lock, Server, Map, Flame, Bot } from 'lucide-react';
 import { reposApi, filesApi, getApiError } from '../lib/api';
 import { useToast } from '../contexts/ToastContext';
 
@@ -220,6 +220,30 @@ export default function RepoDetailPage() {
               }}
             >
               <Server size={13} /> DevOps Expert
+            </Link>
+            <Link
+              to={`/repos/${id}/interview`}
+              className="btn btn-sm"
+              id="grill-me-btn"
+              style={{
+                background: 'linear-gradient(135deg, rgba(239,68,68,0.15), rgba(249,115,22,0.15))',
+                border: '1px solid rgba(239,68,68,0.3)',
+                color: '#fca5a5',
+              }}
+            >
+              <Flame size={13} /> Grill Me!
+            </Link>
+            <Link
+              to={`/repos/${id}/ask`}
+              className="btn btn-sm"
+              id="ask-codebase-btn"
+              style={{
+                background: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(52,211,153,0.15))',
+                border: '1px solid rgba(16,185,129,0.3)',
+                color: '#6ee7b7',
+              }}
+            >
+              <Bot size={13} /> Ask Codebase
             </Link>
           </div>
         </div>

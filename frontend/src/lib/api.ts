@@ -107,6 +107,18 @@ export const devopsApi = {
   report: (repoId: string) => api.get(`/devops/repos/${repoId}/report`),
 };
 
+// ── Interviews ───────────────────────────────────────────────────
+export const interviewsApi = {
+  generate: (repoId: string) => api.post(`/interviews/repos/${repoId}/generate`),
+  get: (repoId: string) => api.get(`/interviews/repos/${repoId}`),
+};
+
+// ── Knowledge ───────────────────────────────────────────────────
+export const knowledgeApi = {
+  index: (repoId: string) => api.post(`/knowledge/repos/${repoId}/index`),
+  ask: (repoId: string, query: string) => api.post(`/knowledge/repos/${repoId}/ask`, { query }),
+};
+
 // ── Users ────────────────────────────────────────────────────────
 export const usersApi = {
   dashboard: () => api.get('/users/me/dashboard'),

@@ -3,18 +3,22 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from beanie import init_beanie
 import redis.asyncio as aioredis
+from typing import Optional
+from redis.asyncio import Redis
 
 from app.config import settings
 from app.models.user import User
 from app.models.repository import Repository
 from app.models.file import RepoFile
 from app.models.issue import Issue
-from app.models.solution import Solution, SolutionReview
+from app.models.solution import Solution
 from app.models.points import PointTransaction, Badge, UserBadge
+from app.models.devops import DevOpsReportModel
+from app.models.interview import MockInterviewModel
 
 # Global connections
-mongo_client: AsyncIOMotorClient = None
-redis_client: aioredis.Redis = None
+mongo_client: Optional[AsyncIOMotorClient] = None
+redis_client: Optional[Redis] = None
 
 
 async def init_db():
@@ -34,6 +38,8 @@ async def init_db():
             PointTransaction,
             Badge,
             UserBadge,
+            DevOpsReportModel,
+            MockInterviewModel,
         ],
     )
 

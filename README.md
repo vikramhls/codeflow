@@ -1,35 +1,51 @@
 # CodeFlow 🚀
 
-A collaborative, gamified code review and bug bounty platform.
+A collaborative, gamified codebase intelligence and bug bounty platform.
 
-CodeFlow allows open-source maintainers to post issues with bounties, and rewards developers for submitting verified solutions. With integrated AI code review, reputation streaks, and a unique issue bidding system, CodeFlow makes open-source collaboration fun, rewarding, and efficient.
+CodeFlow allows you to import repositories and instantly get AI-powered insights, 3D codebase maps, and automated DevOps architectures. It also serves as a platform to post issues with bounties, and rewards developers for submitting verified solutions. With integrated AI code review, repository intelligence, and a unique issue bidding system, CodeFlow makes open-source collaboration fun, rewarding, and incredibly efficient.
 
+## 📸 Screenshots
 
+![Dashboard](docs/dashboard.png)
+
+![Repository Intelligence Assistant](docs/repo-assistant.png)
+
+![3D Repo Map](docs/repo-map.png)
+
+![AI DevOps Expert](docs/devops-expert.png)
+
+![My Solutions Tracker](docs/my-solutions.png)
 
 ## ✨ Key Features
 
-1. **🤖 Automated AI Code Review**
-   As soon as a developer submits a code patch, an integrated AI (powered by OpenRouter) immediately analyzes the code and posts a beautifully styled code review comment. It highlights bugs, security flaws, and praises good code before a maintainer even has to look at it!
+1. **🧠 Repository Intelligence Assistant (RAG)**
+   Import any repository and instantly ask natural language questions about the codebase! The AI uses local ChromaDB vector embeddings to instantly fetch the right code snippets and answer complex architectural questions.
 
-2. **💰 Issue Bidding System**
-   Solvers can name their price! When submitting a solution, developers can specify a custom bid (requested points) from the issue's available bounty pool. If the maintainer accepts the solution, the solver is awarded exactly what they asked for.
+2. **🌌 3D Codebase Mapping**
+   Visualize your entire repository structure as an interactive, beautiful 3D network graph. See how files and folders connect across your project.
 
-3. **🔥 Streaks & Daily Challenges**
-   Logging in and being active on consecutive days builds a user's streak. Maintaining a streak awards bonus reputation points every single day, encouraging developers to return and contribute regularly.
+3. **🏗️ AI DevOps Expert**
+   Automatically generate System Architecture Blueprints for any codebase. The DevOps AI analyzes your stack and draws beautiful server/load-balancer diagrams automatically.
 
-4. **🚀 Bounty Pooling (Crowdfunding)**
-   Is there a bug you really want fixed? Anyone can click the **Boost Bounty** button on an open issue to pledge their own hard-earned reputation points into the issue's bounty pool, incentivizing others to fix it faster.
+4. **🎤 Mock Technical Interviews ("Grill Me")**
+   Get grilled by a tough Senior AI Engineer on your own architectural choices! The AI analyzes your codebase and asks hard questions about Big O complexity, technical debt, and scalability. (Includes a "Show Answer" button to learn!)
 
-5. **🏆 Verifiable Developer Portfolios**
-   Every user has a public profile page displaying their active streak, total reputation points, and a verified portfolio of every bug they've successfully solved across the platform. 
+5. **🤖 Automated AI Code Review**
+   As soon as a developer submits a code patch, an integrated AI immediately analyzes the code and posts a beautifully styled code review comment.
 
+6. **💰 Issue Bidding System & Crowdfunding**
+   Solvers can name their price for fixing bugs! Additionally, anyone can click the **Boost Bounty** button on an open issue to pledge their own reputation points into the issue's bounty pool.
+
+7. **🔥 Streaks & Verified Portfolios**
+   Maintain daily streaks to earn bonus reputation. Every user has a public profile page displaying their active streak and a verified portfolio of every bug they've successfully solved. 
 
 
 ## 📁 Project Structure
 
 This is a monorepo setup containing:
-- `backend/` - The FastAPI backend (MongoDB, Redis, JWT auth).
+- `backend/` - The FastAPI backend (MongoDB, Redis, ChromaDB, JWT auth).
 - `frontend/` - The Vite + React + TypeScript frontend.
+- `cli/` - The CodeBounty command-line tool.
 
 ## 🚀 Getting Started
 
@@ -43,9 +59,11 @@ This is a monorepo setup containing:
    ```bash
    pip install -r requirements.txt
    ```
-3. Configure your environment variables in `backend/.env`. Specifically, you will need to add an OpenRouter API key for the AI code review:
+3. Configure your environment variables in `backend/.env`. Add your OpenRouter API key:
    ```env
    OPENROUTER_API_KEY=your-api-key-here
+   REDIS_URL=redis://localhost:6379
+   MONGODB_URL=mongodb://localhost:27017
    ```
 4. Start the API server:
    ```bash
@@ -71,8 +89,8 @@ Go to **http://localhost:5173** to view the app!
 
 ## 🧪 Technologies Used
 
-- **Frontend:** React, Vite, TypeScript, Lucide Icons
+- **Frontend:** React, Vite, TypeScript, Lucide Icons, React Force Graph 3D
 - **Backend:** FastAPI, Python, Beanie (MongoDB ODM)
+- **AI & Vector DB:** OpenRouter (LLMs), ChromaDB
 - **Database:** MongoDB
 - **Caching & Tasks:** Redis, BackgroundTasks
-- **AI Integration:** OpenRouter (LLMs)
