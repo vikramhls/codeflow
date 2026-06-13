@@ -6,15 +6,13 @@ CodeFlow allows you to import repositories and instantly get AI-powered insights
 
 ## 📸 Screenshots
 
-![Dashboard](docs/dashboard.png)
+![Screenshot 1](screenshot/Screenshot%202026-06-13%20052356.png)
 
-![Repository Intelligence Assistant](docs/repo-assistant.png)
+![Screenshot 2](screenshot/Screenshot%202026-06-13%20052419.png)
 
-![3D Repo Map](docs/repo-map.png)
+![Screenshot 3](screenshot/Screenshot%202026-06-13%20052441.png)
 
-![AI DevOps Expert](docs/devops-expert.png)
-
-![My Solutions Tracker](docs/my-solutions.png)
+![Screenshot 4](screenshot/Screenshot%202026-06-13%20052457.png)
 
 ## ✨ Key Features
 
